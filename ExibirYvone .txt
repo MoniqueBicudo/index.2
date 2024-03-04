@@ -1,0 +1,16 @@
+Algoritmo ExibirYvoneSeEscolaPresente
+Declare
+    frase: caractere[100]
+    posicao: inteiro
+Inicio
+    Escreva("Digite uma frase: ")
+    Leia(frase)
+    
+    // Procurando pela palavra "escola" na frase
+    posicao <- Posicao("escola", frase)
+    
+    // Se a palavra "escola" estiver presente, exiba "Yvone"
+    Se posicao > 0 Então
+        Escreva("Yvone")
+    FimSe
+FimAlgoritmo

@@ -1,0 +1,20 @@
+Algoritmo ItemVida
+Var
+    vidaPersonagem, vidaMaxima: Inteiro
+Inicio
+    vidaMaxima <- 100  // Suponha que a vida máxima do personagem seja 100
+    vidaPersonagem <- 30 // Suponha que a vida atual do personagem seja 30
+
+    Escreva("Vida do personagem: ", vidaPersonagem, "/", vidaMaxima)
+    Se (vidaPersonagem <= vidaMaxima / 10) então // Verifica se a vida do personagem está em 1/10 ou menos
+        Escreva("O personagem está com a vida baixa! Deseja usar um item de vida? (s/n)")
+        Se (LeiaCaractere() = 's') então
+            vidaPersonagem <- vidaMaxima // Recupera a vida do personagem para o máximo
+            Escreva("Item de vida utilizado. Vida restaurada para ", vidaMaxima, "!")
+        Senão
+            Escreva("Item de vida não utilizado. Vida do personagem continua baixa.")
+        FimSe
+    Senão
+        Escreva("A vida do personagem está acima de 1/10. Não é necessário usar um item de vida.")
+    FimSe
+FimAlgoritmo

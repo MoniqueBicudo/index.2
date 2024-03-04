@@ -1,0 +1,33 @@
+algoritmo encontrarPecaRepetida
+    // Declaração de variáveis
+    const
+        TOTAL_PECAS <- 20 // Número total de peças no jogo
+    var
+        pecas: vetor[1..TOTAL_PECAS] de inteiro // Vetor para armazenar as peças do jogo
+        pecaRepetida: inteiro // Variável para armazenar a peça repetida, se houver
+        i, j: inteiro // Variáveis de controle para os loops
+
+    // Gerar peças aleatórias
+    para i de 1 ate TOTAL_PECAS faca
+        pecas[i] <- aleatorio(1, TOTAL_PECAS) // Gera um número aleatório de 1 a TOTAL_PECAS
+    fimPara
+
+    // Verificar se há peças repetidas
+    para i de 1 ate TOTAL_PECAS faca
+        para j de i + 1 ate TOTAL_PECAS faca
+            se pecas[i] = pecas[j] entao
+                pecaRepetida <- pecas[i]
+                interrompa // Interrompe a execução do loop interno se encontrar uma peça repetida
+            fimSe
+        fimPara
+        se pecaRepetida <> 0 entao
+            escreva("A peça repetida é: ", pecaRepetida)
+            interrompa // Interrompe a execução do loop externo se encontrar uma peça repetida
+        fimSe
+    fimPara
+
+    // Se não houver peça repetida
+    se pecaRepetida = 0 entao
+        escreva("Não há peças repetidas no jogo.")
+    fimSe
+fimAlgoritmo
