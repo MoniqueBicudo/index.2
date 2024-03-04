@@ -1,0 +1,50 @@
+algoritmo esvaziarInventario
+  
+    tipo Item:
+        nome: caractere[50]
+        quantidade: inteiro
+
+    // Declaração do vetor de itens
+    itens: vetor[1..100] de Item
+    quantidadeItens: inteiro
+
+    // Função para exibir o inventário atual
+    funcao exibirInventario(itens: vetor de Item, quantidadeItens: inteiro)
+        escreva("=== INVENTÁRIO ===")
+        para i de 1 ate quantidadeItens faca
+            escreva("Nome: ", itens[i].nome, " | Quantidade: ", itens[i].quantidade)
+        fimPara
+    fimFuncao
+
+    // Função para esvaziar o inventário
+    funcao esvaziarInventario(var itens: vetor de Item, var quantidadeItens: inteiro)
+        se quantidadeItens = 0 entao
+            escreva("O inventário já está vazio.")
+        senao
+            enquanto quantidadeItens > 0 faca
+                escreva("Removendo ", itens[quantidadeItens].quantidade, " ", itens[quantidadeItens].nome)
+                itens[quantidadeItens].quantidade <- 0 // Remover item definindo quantidade como zero
+                quantidadeItens <- quantidadeItens - 1 // Decrementa a quantidade de itens
+            fimEnquanto
+            escreva("Inventário esvaziado com sucesso!")
+        fimSe
+    fimFuncao
+
+    // Inicialização do inventário com alguns itens
+    quantidadeItens <- 3
+    itens[1].nome <- "Potion"
+    itens[1].quantidade <- 5
+    itens[2].nome <- "Gold Coin"
+    itens[2].quantidade <- 100
+    itens[3].nome <- "Sword"
+    itens[3].quantidade <- 1
+
+    // Exibir o inventário antes de esvaziar
+    exibirInventario(itens, quantidadeItens)
+
+    // Esvaziar o inventário
+    esvaziarInventario(itens, quantidadeItens)
+
+    // Exibir o inventário após esvaziar
+    exibirInventario(itens, quantidadeItens)
+fimAlgoritmo
